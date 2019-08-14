@@ -1,0 +1,3 @@
+train-set:
+Before calibration: The configuration w-768xh-768 in train-set contains a total number of patches of: 35791 where 6421 (17.94%) are in 0.2 <= p <= 0.5, and 29370 (82.06%) are in p > 0.5
+After calibration: The configuration w-768xh-768 in train-set contains a total number of patches of: 10437 where 6421 (61.52%) are in 0.2 <= p <= 0.5, and 4016 (38.48%) are in p > 0.5

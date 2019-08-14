@@ -1,0 +1,3 @@
+Total data:
+	 Before calibration: The configuration w-1024xh-1024 contains a total number of patches of: 37598 where 6988 (18.59%) are in 0.2 <= p <= 0.5, and 30610 (81.41%) are in p > 0.5
+	 After calibration: The configuration w-1024xh-1024 contains a total number of patches of: 11470 where 6988 (60.92%) are in 0.2 <= p <= 0.5, and 4482 (39.08%) are in p > 0.5

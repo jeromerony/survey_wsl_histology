@@ -14,7 +14,7 @@ Splitting, k-folding, sampling from any datset assumes that the original structu
 * [GlaS Dataset](https://warwick.ac.uk/fac/sci/dcs/research/tia/glascontest)
 * [CAMELLYON16 Dataset](https://camelyon16.grand-challenge.org/Home/)
 
-Our splits/folds can be found in `./folds`. The `CAMELYON16` splits/folds can be found in `./folds/camelyon16/WSI-level/` (for the WSI level, and in `./folds/camelyon16/w-?-x-h-?/patches-level-fourth-pass` (for the patch level. Replace `?` with the corresponding patch size.)
+Our splits/folds can be found in `./folds`. The `CAMELYON16` splits/folds can be found in `./folds/camelyon16/WSI-level/` (for the WSI level, and in `./folds/camelyon16/w-?-x-h-?/split_0` (for the patch level. Replace `?` with the corresponding patch size.)
 
 ## Reproducibility:
 The code is deterministic. Running the code twice will provide exactly the same result. See the module: `./reproducibility.py` to see the concerned modules with determinism.
