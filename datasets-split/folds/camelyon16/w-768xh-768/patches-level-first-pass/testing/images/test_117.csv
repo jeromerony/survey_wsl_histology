@@ -1,0 +1,4 @@
+wsi file name,xml file name,x,y,Tissue percentage,Percentage of cancerous pixels,Tag of the patch
+testing/images/test_117.tif,testing/lesion_annotations/test_117.xml,53321,127108,0.4880455864800347,0.2003021240234375,file_testing-images-test_117.tif_reg_0_row_0_patch_0_x_53321_y_127108_tissue_0.4880455864800347_metastatic_0.2003021240234375_w_768_h_768
+testing/images/test_117.tif,testing/lesion_annotations/test_117.xml,52985,127876,0.4822184244791667,0.2008633083767361,file_testing-images-test_117.tif_reg_0_row_1_patch_0_x_52985_y_127876_tissue_0.4822184244791667_metastatic_0.2008633083767361_w_768_h_768
+testing/images/test_117.tif,testing/lesion_annotations/test_117.xml,53753,127876,0.7711961534288194,0.7705315483940972,file_testing-images-test_117.tif_reg_0_row_1_patch_1_x_53753_y_127876_tissue_0.7711961534288194_metastatic_0.7705315483940972_w_768_h_768
