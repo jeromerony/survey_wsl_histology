@@ -1,4 +1,4 @@
-# Pytorch code for benchmarking different weakly supervised object localization methods with application to histology images for the paper: `Deep weakly supervised cancer localization in histology images: a survey.`
+# Pytorch code for benchmarking different weakly supervised object localization (at pixel level) methods with application to histology images for the paper: `Deep weakly supervised cancer localization in histology images: a survey.`
 
 ## Arxiv: TODO
 ## If you use this code, please cite our work:
