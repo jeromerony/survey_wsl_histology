@@ -76,7 +76,7 @@ def validation(model, loader, device):
     return metrics
 
 
-def test(model, loader, device, grad_cam=False):
+def test(model, loader, device):
     model.eval()
     all_labels = []
     all_logits = []
@@ -242,8 +242,6 @@ def main(epochs, seed):
 
     # evaluate on test set
     test_metrics = test(model=model, loader=test_loader, device=device)
-    if ex.current_run.config['model']['pooling'] == 'average':
-        test_metrics_gradcam = test(model=model, loader=test_loader, device=device, grad_cam=True)
 
     ex.log_scalar('test.loss', test_metrics['losses'].mean(), epochs)
     ex.log_scalar('test.acc', test_metrics['accuracy'], epochs)
@@ -265,11 +263,6 @@ def main(epochs, seed):
             os.path.join(ex.current_run.observers[0].dir, '{}_{}_split-{}_fold-{}.pkl'.format(dataset, pooling,
                                                                                               split, fold))
         )
-
-        if ex.current_run.config['model']['pooling'] == 'average':
-            torch.save(test_metrics_gradcam,
-                       os.path.join(ex.current_run.observers[0].dir, '{}_gradcam_split-{}_fold-{}.pkl'.format(
-                           dataset, pooling, split, fold)))
 
     # metrics to info.json
     info_to_save = ['labels', 'logits', 'probabilities', 'predictions', 'losses', 'accuracy', 'AP', 'confusion_matrix',
