@@ -1,0 +1,13 @@
+train_35.bmp,train_35_anno.bmp,malignant
+train_66.bmp,train_66_anno.bmp,malignant
+train_13.bmp,train_13_anno.bmp,malignant
+train_10.bmp,train_10_anno.bmp,malignant
+train_39.bmp,train_39_anno.bmp,malignant
+train_49.bmp,train_49_anno.bmp,malignant
+train_29.bmp,train_29_anno.bmp,malignant
+train_23.bmp,train_23_anno.bmp,malignant
+train_67.bmp,train_67_anno.bmp,benign
+train_45.bmp,train_45_anno.bmp,benign
+train_85.bmp,train_85_anno.bmp,benign
+train_15.bmp,train_15_anno.bmp,benign
+train_84.bmp,train_84_anno.bmp,benign
