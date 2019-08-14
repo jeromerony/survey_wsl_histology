@@ -26,9 +26,9 @@ def config():
 
 
 @dataset_ingredient.named_config
-def iciar():
-    name = 'iciar'
-    folds_dir = 'folds/bach/'
+def bach():
+    name = 'bach'
+    folds_dir = 'folds/bach'
     patch_size = 512
 
 
@@ -44,11 +44,11 @@ def breakhis():
 
 
 @dataset_ingredient.capture
-def load_iciar(folds_dir, split, fold, data_path, patch_size, preload, batch_size,
+def load_bach(folds_dir, split, fold, data_path, patch_size, preload, batch_size,
                shuffle, num_workers, drop_last, pin_memory, fraction):
-    from .iciar.dataset import PatchDataset
+    from .bach.dataset import PatchDataset
     from .dataset import PhotoDataset
-    from .iciar.utils import get_files, decode_classes
+    from .bach.utils import get_files, decode_classes
 
     files = get_files(folds_dir, split, fold)
     train_files, valid_files, test_files = [decode_classes(f) for f in files]
@@ -137,7 +137,7 @@ def load_breakhis(folds_dir, split, fold, zoom, data_path, preload, patch_size, 
 
 
 _dataset_loaders = {
-    'iciar': load_iciar,
+    'bach': load_bach,
     'breakhis': load_breakhis,
 }
 
