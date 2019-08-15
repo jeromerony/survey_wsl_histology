@@ -34,7 +34,7 @@ def default_config():
     weight_decay = 1e-4
     lr_step = 10
 
-    save_dir = os.path.join('results', 'models')
+    save_dir = os.path.join('results', 'temp')
 
 
 @ex.capture
