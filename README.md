@@ -12,7 +12,7 @@
 }
 ```
 
-# Code for datasets split/sampling:
+# Code for datasets split/sampling (+ patches sampling from WSI):
 * See [./datasets-split](./datasets-split).
 * Detailed documentation: [./datasets-split/README.md](./datasets-split/README.md).
 
