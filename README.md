@@ -1,4 +1,4 @@
-# Pytorch code for benchmarking different weakly supervised object localization (at pixel level) methods with application to histology images for the paper: `Deep weakly-supervised learning methods for classification and localization in histology images: a survey`.
+# Pytorch code for benchmarking different weakly supervised pixel-wise localization methods with application to histology images for the paper: `Deep weakly-supervised learning methods for classification and localization in histology images: a survey`.
 
 ## Arxiv: [https://arxiv.org/abs/1909.03354](https://arxiv.org/abs/1909.03354)
 ## If you use any part of this code, please cite our work:
