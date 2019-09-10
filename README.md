@@ -1,9 +1,15 @@
 # Pytorch code for benchmarking different weakly supervised object localization (at pixel level) methods with application to histology images for the paper: `Deep weakly supervised cancer localization in histology images: a survey.`
 
-## Arxiv: TODO
-## If you use this code, please cite our work:
+## Arxiv: [https://arxiv.org/abs/1909.03354](https://arxiv.org/abs/1909.03354)
+## If you use any part of this code, please cite our work:
 ```
-TODO
+@article{rony2019weak-loc-histo-survey,
+  title={Deep weakly-supervised learning methods for classification and localization in histology images: a survey},
+  author={Rony, J., Belharbi, S. and Dolz, J. and Ben Ayed, I. and McCaffrey, L. and Granger, E.},
+  journal={coRR},
+  volume={abs/1909.03354},
+  year={2019}
+}
 ```
 
 # Code for datasets split/sampling:
@@ -70,4 +76,3 @@ You can also modify the config of the different _ingredients_ directly from the 
 ```python
 python classification_mil.py -F results with dataset.bach model.wildcat model.kmax=1
 ```
-
