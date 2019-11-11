@@ -5,7 +5,7 @@
 ```
 @article{rony2019weak-loc-histo-survey,
   title={Deep weakly-supervised learning methods for classification and localization in histology images: a survey},
-  author={Rony, J., Belharbi, S. and Dolz, J. and Ben Ayed, I. and McCaffrey, L. and Granger, E.},
+  author={Rony, J. and Belharbi, S. and Dolz, J. and Ben Ayed, I. and McCaffrey, L. and Granger, E.},
   journal={coRR},
   volume={abs/1909.03354},
   year={2019}
