@@ -1,3 +1,0 @@
-train-set:
-Before calibration: The configuration w-512xh-512 in train-set contains a total number of patches of: 76327 where 10089 (13.22%) are in 0.2 <= p <= 0.5, and 66238 (86.78%) are in p > 0.5
-After calibration: The configuration w-512xh-512 in train-set contains a total number of patches of: 16603 where 10089 (60.77%) are in 0.2 <= p <= 0.5, and 6514 (39.23%) are in p > 0.5

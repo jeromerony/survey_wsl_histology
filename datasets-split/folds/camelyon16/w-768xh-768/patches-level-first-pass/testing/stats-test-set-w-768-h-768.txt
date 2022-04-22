@@ -1,3 +1,0 @@
-test-set:
-Before calibration: The configuration w-768xh-768 in test-set contains a total number of patches of: 28336 where 3091 (10.91%) are in 0.2 <= p <= 0.5, and 25245 (89.09%) are in p > 0.5
-After calibration: The configuration w-768xh-768 in test-set contains a total number of patches of: 4940 where 3091 (62.57%) are in 0.2 <= p <= 0.5, and 1849 (37.43%) are in p > 0.5

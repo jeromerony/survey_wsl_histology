@@ -1,3 +1,0 @@
-test-set:
-Before calibration: The configuration w-512xh-512 in test-set contains a total number of patches of: 61442 where 4823 (7.85%) are in 0.2 <= p <= 0.5, and 56619 (92.15%) are in p > 0.5
-After calibration: The configuration w-512xh-512 in test-set contains a total number of patches of: 7832 where 4823 (61.58%) are in 0.2 <= p <= 0.5, and 3009 (38.42%) are in p > 0.5

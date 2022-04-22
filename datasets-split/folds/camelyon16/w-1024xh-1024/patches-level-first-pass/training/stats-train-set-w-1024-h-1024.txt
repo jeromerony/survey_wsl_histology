@@ -1,3 +1,0 @@
-train-set:
-Before calibration: The configuration w-1024xh-1024 in train-set contains a total number of patches of: 21209 where 4783 (22.55%) are in 0.2 <= p <= 0.5, and 16426 (77.45%) are in p > 0.5
-After calibration: The configuration w-1024xh-1024 in train-set contains a total number of patches of: 7815 where 4783 (61.20%) are in 0.2 <= p <= 0.5, and 3032 (38.80%) are in p > 0.5

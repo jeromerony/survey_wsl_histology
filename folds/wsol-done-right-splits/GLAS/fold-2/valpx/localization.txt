@@ -1,0 +1,6 @@
+Warwick_QU_Dataset_(Released_2016_07_08)/train_70.bmp,Warwick_QU_Dataset_(Released_2016_07_08)/train_70_anno.bmp,
+Warwick_QU_Dataset_(Released_2016_07_08)/train_31.bmp,Warwick_QU_Dataset_(Released_2016_07_08)/train_31_anno.bmp,
+Warwick_QU_Dataset_(Released_2016_07_08)/train_37.bmp,Warwick_QU_Dataset_(Released_2016_07_08)/train_37_anno.bmp,
+Warwick_QU_Dataset_(Released_2016_07_08)/train_8.bmp,Warwick_QU_Dataset_(Released_2016_07_08)/train_8_anno.bmp,
+Warwick_QU_Dataset_(Released_2016_07_08)/train_80.bmp,Warwick_QU_Dataset_(Released_2016_07_08)/train_80_anno.bmp,
+Warwick_QU_Dataset_(Released_2016_07_08)/train_47.bmp,Warwick_QU_Dataset_(Released_2016_07_08)/train_47_anno.bmp,

@@ -1,3 +1,0 @@
-Total data:
-	 Before calibration: The configuration w-512xh-512 contains a total number of patches of: 137769 where 14912 (10.82%) are in 0.2 <= p <= 0.5, and 122857 (89.18%) are in p > 0.5
-	 After calibration: The configuration w-512xh-512 contains a total number of patches of: 24435 where 14912 (61.03%) are in 0.2 <= p <= 0.5, and 9523 (38.97%) are in p > 0.5

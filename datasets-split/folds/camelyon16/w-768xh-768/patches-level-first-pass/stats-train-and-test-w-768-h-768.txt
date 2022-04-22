@@ -1,3 +1,0 @@
-Total data:
-	 Before calibration: The configuration w-768xh-768 contains a total number of patches of: 64127 where 9512 (14.83%) are in 0.2 <= p <= 0.5, and 54615 (85.17%) are in p > 0.5
-	 After calibration: The configuration w-768xh-768 contains a total number of patches of: 15377 where 9512 (61.86%) are in 0.2 <= p <= 0.5, and 5865 (38.14%) are in p > 0.5

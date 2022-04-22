@@ -1,0 +1,6 @@
+Warwick_QU_Dataset_(Released_2016_07_08)/train_10.bmp,1
+Warwick_QU_Dataset_(Released_2016_07_08)/train_66.bmp,1
+Warwick_QU_Dataset_(Released_2016_07_08)/train_23.bmp,1
+Warwick_QU_Dataset_(Released_2016_07_08)/train_67.bmp,0
+Warwick_QU_Dataset_(Released_2016_07_08)/train_45.bmp,0
+Warwick_QU_Dataset_(Released_2016_07_08)/train_85.bmp,0

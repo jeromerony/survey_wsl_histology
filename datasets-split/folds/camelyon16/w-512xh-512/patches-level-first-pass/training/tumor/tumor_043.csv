@@ -1,4 +1,0 @@
-wsi file name,xml file name,x,y,Tissue percentage,Percentage of cancerous pixels,Tag of the patch
-training/tumor/tumor_043.tif,training/lesion_annotations/tumor_043.xml,59875,114564,0.21026992797851562,0.20006561279296875,file_training-tumor-tumor_043.tif_reg_0_row_0_patch_0_x_59875_y_114564_tissue_0.21026992797851562_metastatic_0.20006561279296875_w_512_h_512
-training/tumor/tumor_043.tif,training/lesion_annotations/tumor_043.xml,59984,115076,0.350982666015625,0.20125961303710938,file_training-tumor-tumor_043.tif_reg_0_row_1_patch_0_x_59984_y_115076_tissue_0.350982666015625_metastatic_0.20125961303710938_w_512_h_512
-training/tumor/tumor_043.tif,training/lesion_annotations/tumor_043.xml,60496,115076,0.18024444580078125,0.6344375610351562,file_training-tumor-tumor_043.tif_reg_0_row_1_patch_1_x_60496_y_115076_tissue_0.18024444580078125_metastatic_0.6344375610351562_w_512_h_512

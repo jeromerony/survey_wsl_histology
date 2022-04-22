@@ -1,3 +1,0 @@
-test-set:
-Before calibration: The configuration w-1024xh-1024 in test-set contains a total number of patches of: 16389 where 2205 (13.45%) are in 0.2 <= p <= 0.5, and 14184 (86.55%) are in p > 0.5
-After calibration: The configuration w-1024xh-1024 in test-set contains a total number of patches of: 3655 where 2205 (60.33%) are in 0.2 <= p <= 0.5, and 1450 (39.67%) are in p > 0.5
