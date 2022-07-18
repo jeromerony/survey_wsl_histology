@@ -1,11 +1,11 @@
 ### Pytorch 1.10.0 code for:
 
-`Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Comparative Study`. [https://arxiv.org/abs/1909.03354](https://arxiv.org/abs/1909.03354)
+`Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey`. [https://arxiv.org/abs/1909.03354](https://arxiv.org/abs/1909.03354)
 
 ### Citation:
 ```
 @article{rony2019weak-loc-histo-survey,
-  title={Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Comparative Study},
+  title={Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey},
   author={Rony, J. and Belharbi, S. and Dolz, J. and Ben Ayed, I. and McCaffrey, L. and Granger, E.},
   journal={coRR},
   volume={abs/1909.03354},
