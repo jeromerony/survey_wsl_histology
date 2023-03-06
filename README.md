@@ -1,6 +1,6 @@
 ### Pytorch 1.10.0 code for:
 
-`Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey`. [Webpage](https://www.melba-journal.org/papers/2023:004.html)
+`Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey`. [Webpage](https://www.melba-journal.org/papers/2023:004.html), [PDF](https://www.melba-journal.org/pdf/2023:004.pdf)
 
 ### Citation:
 ```
