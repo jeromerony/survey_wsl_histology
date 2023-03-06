@@ -4,13 +4,15 @@
 
 ### Citation:
 ```
-@article{rony2019weak-loc-histo-survey,
-  title={Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey},
-  author={Rony, J. and Belharbi, S. and Dolz, J. and Ben Ayed, I. and McCaffrey, L. and Granger, E.},
-  journal={coRR},
-  volume={abs/1909.03354},
-  year={2022}
+@article{rony2022deep,
+    title ={Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey},
+    author={Rony, J. and Belharbi, S. and Dolz, J. and Ben Ayed, I. and McCaffrey, L. and Granger, E.},
+    journal = "Machine Learning for Biomedical Imaging",
+    volume = "2",
+    year = "2023",
+    pages = "96--150"
 }
+
 ```
 
 ### Issues:
