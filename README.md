@@ -4,7 +4,7 @@
 
 ### Citation:
 ```
-@article{rony2022deep,
+@article{rony2023deep,
     title ={Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey},
     author={Rony, J. and Belharbi, S. and Dolz, J. and Ben Ayed, I. and McCaffrey, L. and Granger, E.},
     journal = "Machine Learning for Biomedical Imaging",
