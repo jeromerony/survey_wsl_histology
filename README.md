@@ -2,6 +2,8 @@
 
 `Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey`. [Webpage](https://www.melba-journal.org/papers/2023:004.html), [PDF](https://www.melba-journal.org/pdf/2023:004.pdf)
 
+### [Poster MIDL 2023](https://sbelharbi.github.io/publications/2023/poster-midl-2023.pdf)
+
 ### Citation:
 ```
 @article{rony2023deep,
