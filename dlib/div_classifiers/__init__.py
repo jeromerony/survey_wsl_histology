@@ -17,6 +17,10 @@ from dlib.div_classifiers.inception import InceptionV3Spg
 from dlib.div_classifiers.inception import InceptionV3Adl
 from dlib.div_classifiers.inception import InceptionV3Acol
 
+from dlib.div_classifiers.deit import deit_tscam_base_patch16_224
+from dlib.div_classifiers.deit import deit_tscam_tiny_patch16_224
+from dlib.div_classifiers.deit import deit_tscam_small_patch16_224
+
 from dlib.configure import constants
 
 models = dict()
@@ -35,3 +39,12 @@ models[constants.METHOD_ADL][constants.VGG16] = Vgg16Adl
 models[constants.METHOD_ACOL][constants.RESNET50] = ResNet50Acol
 models[constants.METHOD_ACOL][constants.INCEPTIONV3] = InceptionV3Acol
 models[constants.METHOD_ACOL][constants.VGG16] = Vgg16Acol
+
+models[constants.METHOD_TSCAM] = dict()
+models[constants.METHOD_TSCAM][
+    constants.DEIT_TSCAM_TINY_P16_224] = deit_tscam_tiny_patch16_224
+models[constants.METHOD_TSCAM][
+    constants.DEIT_TSCAM_SMALL_P16_224] = deit_tscam_small_patch16_224
+models[constants.METHOD_TSCAM][
+    constants.DEIT_TSCAM_BASE_P16_224] = deit_tscam_base_patch16_224
+

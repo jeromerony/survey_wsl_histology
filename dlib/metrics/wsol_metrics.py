@@ -444,6 +444,12 @@ class MaskEvaluator(LocalizationEvaluator):
             tracker = sync_tensor_across_gpus(
                 _k_val).sum(dim=0).cpu().numpy()
 
+    def _area(self, v: np.ndarray):
+        idx_1 = np.where(self.threshold_list_right_edge == 1.)[0][0]
+
+        return (v[1:idx_1 + 1] *
+                np.diff(self.threshold_list_right_edge[0:idx_1 + 1])).sum()
+
     def compute(self):
         """
         Arrays are arranged in the following convention (bin edges):
@@ -506,7 +512,15 @@ class MaskEvaluator(LocalizationEvaluator):
             constants.MTR_DICEFG: 100 * dice_fg[idx],
             constants.MTR_DICEBG: 100 * dice_bg[idx],
             constants.MTR_MIOU: 100 * miou[idx],
-            constants.MTR_BESTTAU: self.best_tau_list
+            constants.MTR_BESTTAU: self.best_tau_list,
+            # areas.
+            constants.MTR_AREA_TP: 100 * self._area(tp) / total_fg,
+            constants.MTR_AREA_FN: 100 * self._area(fn) / total_fg,
+            constants.MTR_AREA_TN: 100 * self._area(tn) / total_bg,
+            constants.MTR_AREA_FP: 100 * self._area(fp) / total_bg,
+            constants.MTR_AREA_DICEFG: 100 * self._area(dice_fg),
+            constants.MTR_AREA_DICEBG: 100 * self._area(dice_bg),
+            constants.MTR_AREA_MIOU: 100 * self._area(miou),
         }
 
         self.curve_s = {

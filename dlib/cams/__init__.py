@@ -61,11 +61,13 @@ def build_seg_extractor(model, args):
 
 def build_std_cam_extractor(classifier, args):
     p1 = [constants.GAP, constants.MAXPOOL, constants.WILDCATHEAD,
-          constants.LSEPOOL]
+          constants.LSEPOOL, constants.PRM]
     mbin1 = [constants.METHOD_WILDCAT, constants.METHOD_GAP,
-             constants.METHOD_MAXPOOL, constants.METHOD_LSE]
+             constants.METHOD_MAXPOOL, constants.METHOD_LSE,
+             constants.METHOD_PRM]
 
-    mready = [constants.METHOD_SPG, constants.METHOD_ACOL, constants.METHOD_ADL]
+    mready = [constants.METHOD_SPG, constants.METHOD_ACOL,
+              constants.METHOD_ADL, constants.METHOD_TSCAM]
 
     classifier.eval()
 
@@ -74,7 +76,8 @@ def build_std_cam_extractor(classifier, args):
     # ready cams
     if method in mready:
         assert args.model['arch'] in [constants.ACOLARCH, constants.ADLARCH,
-                                      constants.SPGARCH]
+                                      constants.SPGARCH,
+                                      constants.TSCAMCLASSIFIER]
         return ReadyCam(model=classifier)
 
     # deep mil

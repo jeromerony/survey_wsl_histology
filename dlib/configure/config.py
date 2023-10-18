@@ -294,6 +294,9 @@ def get_config(ds: str, fold: int, magnification: str) -> dict:
         'maxmin_sigma_max': .2,
         'minmax_lambda_size': 1e-3,
         'minmax_lambda_neg': 1e-7,
+        # PRM
+        'prm_ks': 3,  # kernel size for peak stimulation.
+        'prm_st': 1,  # kernel stride.
         # NEGEV ----------------------------------------------------------------
         "negev_ptretrained_cl_cp": constants.BEST_LOC,  # check point for
         # pretrained classifier.

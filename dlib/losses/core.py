@@ -863,7 +863,7 @@ class JointConRanFieldNegev(_ElementaryLoss):
         p_imgs, p_cams = self.pair_samples(imgs=raw_img_grey, glabel=glabel,
                                            prob_cams=fcams_n)
 
-        return self.loss(images=raw_img, segmentations=fcams_n)
+        return self.loss(images=p_imgs, segmentations=p_cams)
 
     def pair_samples(self,
                      imgs: torch.Tensor,

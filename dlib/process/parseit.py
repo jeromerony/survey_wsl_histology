@@ -393,6 +393,11 @@ def get_args(args: dict, eval: bool = False):
     parser.add_argument('--minmax_lambda_neg', type=float, default=None,
                         help='minmax lambda negative info.')
 
+    parser.add_argument('--prm_ks', type=int, default=None,
+                        help='PRM: kernel size.')
+    parser.add_argument('--prm_st', type=int, default=None,
+                        help='PRM: kernel stride.')
+
     # NEGEV method
     parser.add_argument('--sl_ng', type=str2bool, default=None,
                         help='negev: self-learning on/off.')
@@ -636,7 +641,9 @@ def get_args(args: dict, eval: bool = False):
                         cmdx.replace("&& ", "\n")))
                     subprocess.run(cmdx, shell=True, check=True)
 
-                if os.path.isdir(path_cams):
+                cndx = os.path.isdir(path_cams)
+                cndx &= os.path.isfile('{}.tar.gz'.format(path_cams))
+                if cndx:
                     args['std_cams_folder'][split] = path_cams
 
     # DDP. ---------------------------------------------------------------------

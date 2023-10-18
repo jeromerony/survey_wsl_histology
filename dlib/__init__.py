@@ -54,6 +54,13 @@ def create_model(
         return div_classifiers.models[method][encoder_name](
             encoder_weights=encoder_weights, in_channels=in_channels, **kwargs)
 
+    elif arch == constants.TSCAMCLASSIFIER:
+        assert encoder_name in constants.TSCAM_BACKBONES
+        assert task == constants.STD_CL
+        assert method == constants.METHOD_TSCAM
+        return div_classifiers.models[method][encoder_name](
+            encoder_weights, **kwargs)
+
     else:
         archs = [Unet, UnetPlusPlus, MAnet, Linknet, FPN, PSPNet, DeepLabV3,
                  DeepLabV3Plus, PAN, STDClassifier, UnetFCAM, UnetNEGEV]

@@ -364,6 +364,7 @@ class Trainer(Basic):
                 images, target_a, target_b, lam = wsol_cutmix(
                     x=images, target=targets, beta=self.args.cutmix_beta)
                 cutmix_holder = [target_a, target_b, lam]
+                # todo: this holder is never used.
 
         output = self.model(images)
 
@@ -718,7 +719,7 @@ class Trainer(Basic):
                 cl_logits = self.cl_forward(images)
                 pred = cl_logits.argmax(dim=1)
 
-            num_correct += (pred == targets).sum()
+            num_correct += (pred == targets).sum().detach()
             num_images += images.size(0)
 
         # sync
@@ -729,6 +730,7 @@ class Trainer(Basic):
                 [num_images], dtype=torch.float, requires_grad=False,
                 device=torch.device(self.args.c_cudaid)).view(1, )
             num_images = sync_tensor_across_gpus(nx).sum().item()
+            dist.barrier()
 
         classification_acc = num_correct / float(num_images) * 100
         dist.barrier()
@@ -1068,7 +1070,8 @@ class Trainer(Basic):
         if self.args.task == constants.STD_CL:
             if self.args.method in [constants.METHOD_ACOL,
                                     constants.METHOD_ADL,
-                                    constants.METHOD_SPG]:
+                                    constants.METHOD_SPG,
+                                    constants.METHOD_TSCAM]:
                 torch.save(_model.state_dict(),
                            join(path, 'model.pt'))
 
@@ -1154,7 +1157,8 @@ class Trainer(Basic):
         if self.args.task == constants.STD_CL:
             if self.args.method in [constants.METHOD_ACOL,
                                     constants.METHOD_ADL,
-                                    constants.METHOD_SPG]:
+                                    constants.METHOD_SPG,
+                                    constants.METHOD_TSCAM]:
                 weights = torch.load(join(path, 'model.pt'),
                                      map_location=self.device)
                 self._pytorch_model.load_state_dict(weights, strict=True)

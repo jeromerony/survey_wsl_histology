@@ -9,8 +9,9 @@ from dlib.poolings.core import GAP
 from dlib.poolings.core import WGAP
 from dlib.poolings.core import MaxPool
 from dlib.poolings.core import LogSumExpPool
+from dlib.poolings.core import PRM
 from dlib.poolings.mil import DeepMil
 
 __all__ = [
-    'WildCatCLHead', 'GAP', 'WGAP', 'MaxPool', 'LogSumExpPool', 'DeepMil'
+    'WildCatCLHead', 'GAP', 'WGAP', 'MaxPool', 'LogSumExpPool', 'DeepMil', 'PRM'
 ]

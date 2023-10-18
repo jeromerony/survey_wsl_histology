@@ -8,7 +8,6 @@ root_dir = dirname(dirname(dirname(abspath(__file__))))
 
 sys.path.append(root_dir)
 
-from dlib.configure import constants
 from dlib.poolings.core import _BasicPooler
 
 

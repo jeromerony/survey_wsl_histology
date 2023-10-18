@@ -69,6 +69,8 @@ class BuiltinCam:
                                dlib.poolings.WildCatCLHead),
                     isinstance(_model.classification_head,
                                dlib.poolings.LogSumExpPool),
+                    isinstance(_model.classification_head,
+                               dlib.poolings.PRM),
                     ])
 
     @staticmethod

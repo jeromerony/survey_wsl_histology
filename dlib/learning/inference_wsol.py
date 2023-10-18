@@ -157,7 +157,8 @@ class CAMComputer(object):
 
         self.special1 = self.args.method in [constants.METHOD_SPG,
                                              constants.METHOD_ACOL,
-                                             constants.METHOD_ADL]
+                                             constants.METHOD_ADL,
+                                             constants.METHOD_TSCAM]
 
         if args.task == constants.STD_CL:
             self.std_cam_extractor = self._build_std_cam_extractor(
@@ -442,10 +443,11 @@ class CAMComputer(object):
                             plot_cam_on_img=False, tag_cam_on_img=False,
                             plot_gt_on_img=False, separate_by_class=False):
         print('Drawing some pictures')
-        assert self.evaluator.best_tau_list != []
+        # assert self.evaluator.best_tau_list != []
         iou_threshold_list = self.evaluator.iou_threshold_list
-        best_tau_list = self.evaluator.best_tau_list
-        self.assert_tau_list()
+        # best_tau_list = self.evaluator.best_tau_list
+        best_tau_list = [0.5]
+        # self.assert_tau_list()
 
         ids_to_draw = self.select_random_ids_to_draw(nbr=nbr)
         # todo: optimize. unnecessary loading of useless samples.

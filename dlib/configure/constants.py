@@ -21,8 +21,10 @@ MAXPOOL = 'MaxPool'
 LSEPOOL = 'LogSumExpPool'
 NONEPOOL = 'NONE'
 DEEPMIL = 'DeepMil'
+PRM = 'PRM'
 
-SPATIAL_POOLINGS = [WILDCATHEAD, GAP, WGAP, MAXPOOL, LSEPOOL, NONEPOOL, DEEPMIL]
+SPATIAL_POOLINGS = [WILDCATHEAD, GAP, WGAP, MAXPOOL, LSEPOOL, NONEPOOL,
+                    DEEPMIL, PRM]
 
 # methods
 METHOD_WILDCAT = 'WILDCAT'  # pooling: WILDCATHEAD
@@ -56,6 +58,9 @@ METHOD_DEEPMIL = 'DEEPMIL'
 
 METHOD_MAXMIN = 'MaxMin'
 
+METHOD_PRM = 'PRM'
+METHOD_TSCAM = 'TSCAM'
+
 # SEG method
 METHOD_SEG = 'SEG'
 
@@ -79,6 +84,8 @@ METHODS = [METHOD_WILDCAT,
            METHOD_CUTMIX,
            METHOD_DEEPMIL,
            METHOD_MAXMIN,
+           METHOD_PRM,
+           METHOD_TSCAM,
            METHOD_SEG]
 
 METHOD_2_POOLINGHEAD = {
@@ -102,7 +109,9 @@ METHOD_2_POOLINGHEAD = {
         METHOD_HAS: WGAP,
         METHOD_CUTMIX: WGAP,
         METHOD_DEEPMIL: DEEPMIL,
-        METHOD_MAXMIN: WILDCATHEAD
+        METHOD_MAXMIN: WILDCATHEAD,
+        METHOD_PRM: PRM,
+        METHOD_TSCAM: GAP
     }
 
 METHOD_REQU_GRAD = {
@@ -126,7 +135,9 @@ METHOD_REQU_GRAD = {
         METHOD_HAS: False,
         METHOD_CUTMIX: False,
         METHOD_DEEPMIL: False,
-        METHOD_MAXMIN: False
+        METHOD_MAXMIN: False,
+        METHOD_PRM: False,
+        METHOD_TSCAM: False
 }
 
 METHOD_LITERAL_NAMES = {
@@ -134,7 +145,7 @@ METHOD_LITERAL_NAMES = {
         METHOD_GAP: 'GAP',
         METHOD_MAXPOOL: 'MaxPool',
         METHOD_LSE: 'LSEPool',
-        METHOD_CAM: 'CAM*',
+        METHOD_CAM: 'CAM',
         METHOD_SCORECAM: 'ScoreCAM',
         METHOD_SSCAM: 'SSCAM',
         METHOD_ISCAM: 'ISCAM',
@@ -150,7 +161,9 @@ METHOD_LITERAL_NAMES = {
         METHOD_HAS: 'HaS',
         METHOD_CUTMIX: 'CutMix',
         METHOD_DEEPMIL: 'DeepMIL',
-        METHOD_MAXMIN: 'MaxMin'
+        METHOD_MAXMIN: 'MaxMin',
+        METHOD_PRM: 'PRM',
+        METHOD_TSCAM: 'TS-CAM'
 }
 # datasets mode
 DS_TRAIN = "TRAIN"
@@ -195,6 +208,7 @@ IMAGENET = "imagenet"
 # archs
 STDCLASSIFIER = "STDClassifier"
 MaxMinClassifier = 'MaxMinClassifier'
+TSCAMCLASSIFIER = 'TSCAMClassifier'
 
 UNETFCAM = 'UnetFCAM'  # USED
 UNETNEGEV = 'UnetNEGEV'
@@ -213,7 +227,8 @@ DEEPLABV3 = "DeepLabV3"
 DEEPLABV3PLUS = "DeepLabV3Plus"
 PAN = "PAN"
 
-ARCHS = [STDCLASSIFIER, MaxMinClassifier, ACOLARCH, ADLARCH, SPGARCH,
+ARCHS = [STDCLASSIFIER, MaxMinClassifier, TSCAMCLASSIFIER,
+         ACOLARCH, ADLARCH, SPGARCH,
          UNETFCAM, UNETNEGEV, UNET]
 
 # std cld method to arch.
@@ -237,7 +252,9 @@ STD_CL_METHOD_2_ARCH = {
     METHOD_HAS: STDCLASSIFIER,
     METHOD_CUTMIX: STDCLASSIFIER,
     METHOD_DEEPMIL: STDCLASSIFIER,
-    METHOD_MAXMIN: MaxMinClassifier
+    METHOD_MAXMIN: MaxMinClassifier,
+    METHOD_PRM: STDCLASSIFIER,
+    METHOD_TSCAM: TSCAMCLASSIFIER
 }
 # ecnoders
 
@@ -250,10 +267,22 @@ VGG16 = 'vgg16'
 # inceptionv3
 INCEPTIONV3 = 'inceptionv3'
 
+# DEIT TSCAM
+DEIT_TSCAM_BASE_P16_224 = 'deit_tscam_base_patch16_224'
+DEIT_TSCAM_SMALL_P16_224 = 'deit_tscam_small_patch16_224'
+DEIT_TSCAM_TINY_P16_224 = 'deit_tscam_tiny_patch16_224'
+
 BACKBONES = [RESNET50,
              VGG16,
-             INCEPTIONV3
+             INCEPTIONV3,
+             DEIT_TSCAM_SMALL_P16_224,
+             DEIT_TSCAM_BASE_P16_224,
+             DEIT_TSCAM_TINY_P16_224
              ]
+
+TSCAM_BACKBONES = [DEIT_TSCAM_SMALL_P16_224,
+                   DEIT_TSCAM_BASE_P16_224,
+                   DEIT_TSCAM_TINY_P16_224]
 
 # ------------------------------------------------------------------------------
 
@@ -409,6 +438,15 @@ MTR_DICEBG = 'Dice background'
 MTR_MIOU = 'MIOU'
 MTR_BESTTAU = 'Best tau'
 
+MTR_AREA_TP = 'Area true positive'
+MTR_AREA_TN = 'Area true negative'
+MTR_AREA_FN = 'Area false negative'
+MTR_AREA_FP = 'Area false positive'
+MTR_AREA_MIOU = 'Area MIOU'
+MTR_AREA_DICEFG = 'Area Dice foreground'
+MTR_AREA_DICEBG = 'Area Dice background'
+
+
 MTR_CL = 'Classification accuracy'
 
 # experiment mode: hyper-parameters search or final mode.
@@ -432,7 +470,7 @@ FOLDER_EXP = {
 # see sampler type: f_Cam, NEGEV
 SEED_TH = 'threshold_seeder'
 SEED_PROB = 'probability_seeder'
-SEED_PROB_N_AREA = 'probability_negative_area_seeder'
+SEED_PROB_N_AREA = 'probability_negative_salloarea_seeder'
 
 # pairing samples: negev
 PAIR_SAME_C = 'same_class'

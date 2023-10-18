@@ -9,7 +9,7 @@ import torch.nn.functional as F
 root_dir = dirname(dirname(dirname(abspath(__file__))))
 sys.path.append(root_dir)
 
-__all__ = ['GAP', 'WGAP', 'MaxPool', 'LogSumExpPool']
+__all__ = ['GAP', 'WGAP', 'MaxPool', 'LogSumExpPool', 'PRM']
 
 
 class _BasicPooler(nn.Module):
@@ -24,7 +24,9 @@ class _BasicPooler(nn.Module):
                  alpha: float = 0.6,
                  dropout: float = 0.0,
                  mid_channels: int = 128,
-                 gated: bool = False
+                 gated: bool = False,
+                 prm_ks: int = 3,
+                 prm_st: int = 1
                  ):
         super(_BasicPooler, self).__init__()
 
@@ -45,6 +47,14 @@ class _BasicPooler(nn.Module):
         # mil
         self.mid_channels = mid_channels
         self.gated = gated
+
+        # prm
+        assert isinstance(prm_ks, int)
+        assert prm_ks > 0
+        assert isinstance(prm_st, int)
+        assert prm_st > 0
+        self.prm_ks = prm_ks
+        self.prm_st = prm_st
 
         self.name = 'null-name'
 
@@ -102,8 +112,12 @@ class WGAP(_BasicPooler):
         super(WGAP, self).__init__(**kwargs)
         self.name = 'WGAP'
 
+        classes = self.classes
+        if self.support_background:
+            classes = classes + 1
+
         self.avgpool = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Linear(self.in_channels, self.classes)
+        self.fc = nn.Linear(self.in_channels, classes)
 
     @property
     def builtin_cam(self):
@@ -114,6 +128,8 @@ class WGAP(_BasicPooler):
         pre_logit = self.avgpool(x)
         pre_logit = pre_logit.reshape(pre_logit.size(0), -1)
         logits = self.fc(pre_logit)
+
+        logits = self.correct_cl_logits(logits)
 
         return logits
 
@@ -176,6 +192,39 @@ class LogSumExpPool(_BasicPooler):
                               self.classes, self.support_background, self.r)
 
 
+class PRM(_BasicPooler):
+    def __init__(self, **kwargs):
+        super(PRM, self).__init__(**kwargs)
+        self.name = 'PRM'
+
+        classes = self.classes
+        if self.support_background:
+            classes = classes + 1
+
+        self.conv = nn.Conv2d(self.in_channels, out_channels=classes,
+                              kernel_size=1)
+        self.maxpool = nn.MaxPool2d(kernel_size=self.prm_ks, stride=self.prm_st)
+        self.pool = nn.AdaptiveAvgPool2d(1)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        self.assert_x(x)
+
+        out = self.conv(x)
+        self.cams = out.detach()
+
+        out = self.maxpool(out)
+
+        logits = self.pool(out).flatten(1)
+        logits = self.correct_cl_logits(logits)
+
+        return logits
+
+    def __repr__(self):
+        return '{}(kernel size={}, stride={}, support_background={}, ' \
+               ')'.format(self.__class__.__name__, self.prm_ks,
+                          self.prm_st, self.support_background)
+
+
 if __name__ == '__main__':
     from dlib.utils.shared import announce_msg
     from dlib.utils.reproducibility import set_seed
@@ -190,7 +239,7 @@ if __name__ == '__main__':
     x = torch.rand(b, c, h, w).to(DEVICE)
 
     for support_background in [True, False]:
-        for cl in [GAP, WGAP, MaxPool, LogSumExpPool]:
+        for cl in [GAP, WGAP, MaxPool, LogSumExpPool, PRM]:
             instance = cl(in_channels=c, classes=classes,
                           support_background=support_background)
             instance.to(DEVICE)

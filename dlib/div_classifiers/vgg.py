@@ -384,7 +384,7 @@ class Vgg16Adl(CoreClassifier):
             cam_weights = self.fc.weight[labels]
             cams = (cam_weights.view(*feature_map.shape[:2], 1, 1) *
                     feature_map).mean(1, keepdim=False)
-            self.cams = cams.detach()
+            self.cams = cams.detach()  # b, h`, w`
 
         self.logits_dict = {'logits': logits}
 

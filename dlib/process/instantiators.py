@@ -291,7 +291,9 @@ def get_aux_params(args):
         "support_background": args.model['support_background'],
         "r": args.lse_r,
         "mid_channels": args.mil_mid_channels,
-        "gated": args.mil_gated
+        "gated": args.mil_gated,
+        'prm_ks': args.prm_ks if hasattr(args, 'prm_ks') else 3,
+        'prm_st': args.prm_st if hasattr(args, 'prm_st') else 1
     }
 
 
@@ -306,7 +308,7 @@ def get_pretrainde_classifier(args):
     encoder_depth, decoder_channels = get_encoder_d_c(p.encoder_name)
 
     spec_mth = [constants.METHOD_SPG, constants.METHOD_ACOL,
-                constants.METHOD_ADL]
+                constants.METHOD_ADL, constants.METHOD_TSCAM]
 
     if args.method in spec_mth:
         if args.method == constants.METHOD_ACOL:
@@ -348,6 +350,17 @@ def get_pretrainde_classifier(args):
                 large_feature_map=args.adl_large_feature_map,
                 scale_in=p.scale_in
             )
+
+        elif args.method == constants.METHOD_TSCAM:
+            model = create_model(
+                task=args.task,
+                arch=p.arch,
+                method=args.method,
+                encoder_name=p.encoder_name,
+                encoder_weights=encoder_weights,
+                num_classes=args.num_classes
+            )
+
         else:
             raise ValueError
     else:
@@ -443,7 +456,7 @@ def get_model(args, eval=False, eval_path_weights=''):
     encoder_depth, decoder_channels = get_encoder_d_c(p.encoder_name)
 
     spec_mth = [constants.METHOD_SPG, constants.METHOD_ACOL,
-                constants.METHOD_ADL]
+                constants.METHOD_ADL, constants.METHOD_TSCAM]
     method = ''
     support_background = args.model['support_background'],
 
@@ -489,6 +502,16 @@ def get_model(args, eval=False, eval_path_weights=''):
                     adl_drop_threshold=args.adl_drop_threshold,
                     large_feature_map=args.adl_large_feature_map,
                     scale_in=p.scale_in
+                )
+
+            elif args.method == constants.METHOD_TSCAM:
+                model = create_model(
+                    task=args.task,
+                    arch=p.arch,
+                    method=args.method,
+                    encoder_name=p.encoder_name,
+                    encoder_weights=encoder_weights,
+                    num_classes=args.num_classes
                 )
             else:
                 raise ValueError
@@ -781,7 +804,7 @@ def _get_model_params_for_opt(args, model):
         ]
 
     spec_mth = [constants.METHOD_SPG, constants.METHOD_ACOL,
-                constants.METHOD_ADL]
+                constants.METHOD_ADL, constants.METHOD_TSCAM]
 
     sp_method = (args.task == constants.STD_CL) and (args.method in spec_mth)
 
@@ -809,6 +832,12 @@ def _get_model_params_for_opt(args, model):
                           'encoder.Conv2d_2',
                           'encoder.Conv2d_3', 'encoder.Conv2d_4'],  # features
         }
+
+    if args.method == constants.METHOD_TSCAM:
+        return [
+            {'params': model.parameters(), 'lr': hparams.lr}
+        ]
+
 
     param_features = []
     param_classifiers = []
