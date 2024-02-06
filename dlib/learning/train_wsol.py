@@ -364,7 +364,6 @@ class Trainer(Basic):
                 images, target_a, target_b, lam = wsol_cutmix(
                     x=images, target=targets, beta=self.args.cutmix_beta)
                 cutmix_holder = [target_a, target_b, lam]
-                # todo: this holder is never used.
 
         output = self.model(images)
 
