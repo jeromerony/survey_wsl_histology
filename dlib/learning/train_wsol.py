@@ -373,7 +373,9 @@ class Trainer(Basic):
             loss = self.loss(epoch=self.epoch,
                              model=self.model,
                              cl_logits=cl_logits,
-                             glabel=y_global)
+                             glabel=y_global,
+                             cutmix_holder=cutmix_holder
+                             )
             logits = cl_logits
 
         elif self.args.task == constants.F_CL:
