@@ -1,4 +1,4 @@
-# [Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey (Machine Learning for Biomedical Imaging 2022)](https://www.melba-journal.org/pdf/2023:004.pdf)
+# [Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey (Machine Learning for Biomedical Imaging 2023)](https://www.melba-journal.org/pdf/2023:004.pdf)
 
 
 by
