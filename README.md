@@ -1,8 +1,34 @@
-### Pytorch 1.10.0 code for:
+# [Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey (Machine Learning for Biomedical Imaging 2022)](https://www.melba-journal.org/pdf/2023:004.pdf)
 
-`Deep Weakly-Supervised Learning Methods for Classification and Localization in Histology Images: A Survey`. [Webpage](https://www.melba-journal.org/papers/2023:004.html), [PDF](https://www.melba-journal.org/pdf/2023:004.pdf)
 
-### [Poster MIDL 2023](https://sbelharbi.github.io/publications/2023/poster-midl-2023.pdf)
+by
+**Jérôme Rony<sup>1</sup>,
+Soufiane Belharbi<sup>1</sup>,
+Jose Dolz<sup>2</sup>,
+Ismail Ben Ayed<sup>1</sup>,
+Luke McCaffrey<sup>3</sup>,
+Eric Granger<sup>1</sup>**
+
+
+<sup>1</sup> LIVIA, Dept. of Systems Engineering, ETS Montreal, Canada
+<br/>
+<sup>2</sup> LIVIA, Dept. of Software and IT Engineering, ETS Montreal, Canada
+<br/>
+<sup>3</sup> Goodman Cancer Research Centre, Dept. of Oncology, McGill University, Montreal, Canada
+
+<p align="center"><img src="doc/taxo.png" alt="outline" width="30%"></p>
+
+[![Webpage](https://img.shields.io/badge/Webpage-b31b1b.svg?logo=readthedocs)](https://www.melba-journal.org/papers/2023:004.html)
+[![PDF](https://img.shields.io/badge/PDF-green?logo=readme)](https://www.melba-journal.org/pdf/2023:004.pdf)
+[![MIDL 2023 poster](https://img.shields.io/badge/Poster-green)](https://sbelharbi.github.io/publications/2023/poster-midl-2023.pdf)
+
+## Abstract
+Using state-of-the-art deep learning (DL) models to diagnose cancer from histology data presents several challenges related to the nature and availability of labeled histology images, including image size, stain variations, and label ambiguity. In addition, cancer grading and the localization of regions of interest (ROIs) in such images normally rely on both image- and pixel-level labels, with the latter requiring a costly annotation process. Deep weakly-supervised object localization (WSOL) methods provide different strategies for low-cost training of DL models. Given only image-class annotations, these methods can be trained to simultaneously classify an image, and yield class activation maps (CAMs) for ROI localization.
+This paper provides a review of deep WSOL methods to identify and locate diseases in histology images, without the need for pixel-level annotations. We propose a taxonomy in which these methods are divided into bottom-up and top-down methods according to the information flow in models. Although the latter have seen only limited progress, recent bottom-up methods are currently  driving a lot of progress with the use of deep WSOL methods. Early works focused on designing different spatial pooling functions. However, those methods quickly peaked in term of localization accuracy and revealed a major limitation, namely, -- the under-activation of CAMs, which leads to high false negative localization. Subsequent works aimed to alleviate this shortcoming and recover the complete object from the background, using different techniques such as perturbation, self-attention, shallow features, pseudo-annotation, and task decoupling.
+In the present paper, representative deep WSOL methods from our taxonomy are also evaluated and compared in terms of classification and localization accuracy using two challenging public histology datasets -- one for colon cancer (GlaS), and a second, for breast cancer (Camelyon16).  Overall, the results indicate poor localization performance, particularly for generic methods that were initially designed to process natural images. Methods designed to address the challenges posed by histology data often use priors such as ROI size, or additional pixel-wise supervision estimated from a pre-trained classifier, allowing them to achieve better results. However, all the methods suffer from high false positive/negative localization. Classification performance is mainly affected by the model selection process, which uses either the classification or the localization metric. Finally, four key challenges are identified in the application of deep WSOL methods in histology, namely, -- under-/over-activation of CAMs, sensitivity to thresholding, and model selection -- and research avenues are provided to mitigate them.  Our code is publicly available at [github.com/jeromerony/survey_wsl_histology](https://github.com/jeromerony/survey_wsl_histology).
+
+
+**Code: Pytorch 1.10.0.**
 
 ### Citation:
 ```
@@ -16,14 +42,11 @@
 }
 ```
 
-### Issues:
-Please create a github issue.
-
 
 ### Content:
 * [View](#view)
 * [Results](#results)
-* [Requirements](#re2q)
+* [Requirements](#reqs)
 * [Datasets](#datasets)
 * [Run code](#run)
 
